@@ -33,9 +33,7 @@ class MannerDetailViewController: UIViewController {
     }
     
     @IBAction func backPressed(sender: AnyObject) {
-        
         self.dismissViewControllerAnimated(true, completion: nil)
-    
     }
     
     

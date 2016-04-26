@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import MessageUI
 
-class ViewController: UITableViewController {
+class ViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+    
 
     var manners : [Manner] = [
         
@@ -22,6 +24,8 @@ class ViewController: UITableViewController {
         Manner(image: UIImage(named: "Bad Words")!, name: "Bad Words", description: "Never use foul language in front of people if you don't know if it will bother them.")
     ]
     
+    var selectedManners : [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -30,7 +34,7 @@ class ViewController: UITableViewController {
         self.tableView.registerNib(cellNib, forCellReuseIdentifier: "detail_view")
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,6 +55,54 @@ class ViewController: UITableViewController {
         
     }
     
+    @IBOutlet weak var testLabel: UILabel!
+    
+    
+    //bring page for user to set recipient email
+    @IBAction func setEmailButton(sender: UIButton) {
+        let navVC = self.storyboard!.instantiateViewControllerWithIdentifier("email_view") as! EmailViewController
+        
+        
+        self.presentViewController(navVC, animated: true, completion: nil)
+    }
+    
+    //email the results
+    @IBAction func sendResultsButton(sender: AnyObject)
+    {
+        let composeEmailVC = MFMailComposeViewController()
+        composeEmailVC.mailComposeDelegate = self
+        
+        let userDefaults = NSUserDefaults()
+        
+        composeEmailVC.setToRecipients([userDefaults.stringForKey("Email")!])
+        composeEmailVC.setSubject("Manners App Summary")
+        
+        var messageBody : String
+        
+        if selectedManners[0] == ""
+        {
+            messageBody = "No manners have been viewed"
+        }
+        else
+        {
+            messageBody = "The following manners have been reviewed:" + "\r\n"
+            
+            for m in selectedManners
+            {
+                messageBody = messageBody + m + "\r\n"
+            }
+        }
+        
+        composeEmailVC.setMessageBody(messageBody, isHTML: false)
+        
+        self.presentViewController(composeEmailVC, animated: true, completion: nil)
+
+    }
+
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
@@ -65,9 +117,9 @@ class ViewController: UITableViewController {
         let detailVC = navVC.viewControllers[0] as! MannerDetailViewController
         detailVC.m = self.manners[indexPath.row]
         
+        selectedManners.append(detailVC.m.name)
+        
         self.presentViewController(navVC, animated: true, completion: nil)
-        
-        
     
     }
 

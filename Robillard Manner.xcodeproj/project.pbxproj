@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00E4B4C11CC5D79E00FCD622 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E4B4C01CC5D79E00FCD622 /* EmailViewController.swift */; };
 		71D75B471CC49D7C00CB9333 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D75B461CC49D7C00CB9333 /* AppDelegate.swift */; };
 		71D75B491CC49D7C00CB9333 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D75B481CC49D7C00CB9333 /* ViewController.swift */; };
 		71D75B4C1CC49D7C00CB9333 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D75B4A1CC49D7C00CB9333 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00E4B4C01CC5D79E00FCD622 /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		71D75B431CC49D7C00CB9333 /* Robillard Manner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Robillard Manner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D75B461CC49D7C00CB9333 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71D75B481CC49D7C00CB9333 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				71D75B521CC49D7C00CB9333 /* Info.plist */,
 				71D75B581CC49F9400CB9333 /* Manner.swift */,
 				71D75B5A1CC4A14000CB9333 /* MannerDetailViewController.swift */,
+				00E4B4C01CC5D79E00FCD622 /* EmailViewController.swift */,
 				71D75B5E1CC4AE5100CB9333 /* MannerTableViewCell.swift */,
 				71D75B5F1CC4AE5100CB9333 /* MannerTableViewCell.xib */,
 			);
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71D75B601CC4AE5100CB9333 /* MannerTableViewCell.swift in Sources */,
+				00E4B4C11CC5D79E00FCD622 /* EmailViewController.swift in Sources */,
 				71D75B5B1CC4A14000CB9333 /* MannerDetailViewController.swift in Sources */,
 				71D75B491CC49D7C00CB9333 /* ViewController.swift in Sources */,
 				71D75B471CC49D7C00CB9333 /* AppDelegate.swift in Sources */,
